@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "investigations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::investigation.investigation",
+      "mappedBy": "teams"
+    }
+  }
+}

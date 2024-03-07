@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investigation_types",
+  "info": {
+    "singularName": "investigation-type",
+    "pluralName": "investigation-types",
+    "displayName": "Investigation Type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "investigations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::investigation.investigation",
+      "inversedBy": "investigation_types"
+    }
+  }
+}

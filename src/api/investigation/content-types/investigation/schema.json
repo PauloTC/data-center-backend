@@ -1,0 +1,134 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investigations",
+  "info": {
+    "singularName": "investigation",
+    "pluralName": "investigations",
+    "displayName": "Investigation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "investigation_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::investigation-type.investigation-type",
+      "mappedBy": "investigations"
+    },
+    "publics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::public.public",
+      "mappedBy": "investigations"
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::location.location",
+      "mappedBy": "investigations"
+    },
+    "date": {
+      "type": "enumeration",
+      "enum": [
+        "Q1 2024",
+        "Q2 2024",
+        "Q3 2024",
+        "Q4 2024"
+      ]
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "en curso",
+        "finalizado"
+      ],
+      "default": "en curso"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "insights": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::insight.insight",
+      "mappedBy": "investigation"
+    },
+    "guide_media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "project": {
+      "type": "enumeration",
+      "enum": [
+        "dexarrollate",
+        "diadia",
+        "diadia dex",
+        "insuma",
+        "loyalty",
+        "planeamiento financiero",
+        "web de clientes",
+        "web del vendedor"
+      ]
+    },
+    "scope": {
+      "type": "enumeration",
+      "enum": [
+        "macro",
+        "mixto",
+        "puntual"
+      ]
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::team.team",
+      "inversedBy": "investigations"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sample": {
+      "type": "text"
+    },
+    "researchers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::researcher.researcher",
+      "inversedBy": "investigations"
+    },
+    "specific_goals": {
+      "type": "text"
+    },
+    "guide": {
+      "type": "text"
+    }
+  }
+}
